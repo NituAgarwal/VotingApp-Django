@@ -79,9 +79,9 @@ WSGI_APPLICATION = 'firstproject.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'VOTEPOLL',
-        'USER': 'root',
-        'PASSWORD': 'mysqldb',
+        'NAME': 'VOTEPOLL', #database name
+        'USER': 'root', # mention username to login to mysql
+        'PASSWORD': 'mysqldb', # mention the password to login to mysql
         'HOST': '',   # Or an IP Address that your DB is hosted on
         'PORT': '',
     }

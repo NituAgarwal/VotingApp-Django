@@ -14,14 +14,18 @@ function getCookie(cname) {
     }
     return "";
 }
-function checkCookie() {
+function checkCookie(question_id) {
     var user = getCookie("username");
-    if (user != "") {
-        alert("Welcome again " + user + ".You have already voted");
+    var question = getCookie("question_id");
+    if (user != "" && question == question_id) {
+        alert("Welcome again " + user + ".");
+        document.getElementById('detailbody').innerHTML = 'You have already voted'
     } else {
         user = prompt("Please enter your name:", "");
         if (user != "" && user != null) {
             setCookie("username", user, 365);
+            setCookie("question_id", question_id, 365);
+
         }
     }
 }
