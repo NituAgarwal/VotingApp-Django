@@ -1,5 +1,4 @@
 from django.shortcuts import render
-from django.template import loader
 from django.shortcuts import get_object_or_404
 from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse
@@ -10,10 +9,8 @@ from django.http import HttpResponse
 from .models import Question,Choice
 
 def index(request):
-    latest_question_list = Question.objects.order_by('-pub_date')[:5]
-    template = loader.get_template('voteapp/index.html')
-    context = {'latest_question_list': latest_question_list,}
-    return HttpResponse(template.render(context, request))
+    latest_question_list = Question.objects.order_by('-pub_date')
+    return render(request,'voteapp/index.html', {'latest_question_list': latest_question_list})
 
 def detail(request, question_id):
     question = get_object_or_404(Question, pk=question_id)
