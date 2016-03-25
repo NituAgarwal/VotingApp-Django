@@ -21,7 +21,7 @@ DATABASES = {
 
 Instructions to run the Project
 
-1. Download the project https://github.com/NituAgarwal/VotingApp-Django by clicking on "Download ZIP" and save it in desired locatio
+1. Download the project https://github.com/NituAgarwal/VotingApp-Django by clicking on "Download ZIP" and save it in desired location
 2. Extract files
 3. Open terminal
 4. Go to the location where project files are extracted
@@ -31,6 +31,9 @@ Instructions to run the Project
 7. Go to URL http://localhost:<port_number>/voteapp 
 Note: mention port_number as mentioned in terminal
 
+To run test cases:
+python manage.py test voteapp
+Note: voteapp is the application name where tests.py is available
 
 Instruction for admin to create questions and choices for voteapp
 
