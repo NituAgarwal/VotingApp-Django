@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		{% load staticfiles %}
+		<link rel="stylesheet" type="text/css" href="{% static 'voteapp/style.css' %}" />
+		<script type='text/javascript' src ="{% static 'voteapp/voteapp_function.js' %}">
+		</script>
+	</head>
+	<body id = "detailbody" onload="checkCookie({{ question.id }})">
+		{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+
+		<form action="{% url 'vote' question.id %}" method="post">
+		{% csrf_token %}
+		{% for choice in question.choice_set.all %}
+		    <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}" />
+		    <label for="choice{{ forloop.counter }}">{{ choice.choice_text }}</label><br />
+		{% endfor %}
+		<input type="submit" onclick="return clicked();" value="Submit" />
+		</form>
+	</body>
+</html>
