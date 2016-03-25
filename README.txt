@@ -1,0 +1,1 @@
+This is a Voting Application created using django
